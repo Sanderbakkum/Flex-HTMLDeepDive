@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fotoslider </title>
+    <link rel="stylesheet" href="css/fotoslider.css">
+    <script>
+
+        function setupFotoslider(){
+           
+            let fotonummer, fotobreedte, aantalfotos;
+            fotonummer = 0;
+            fotobreedte = 500;
+
+            let fotoslider = document.getElementById("fotoslider");
+            let volgendeKnop = document.getElementById("volgende-btn");
+            let vorigeKnop = document.getElementById("vorige-btn")
+
+            aantalfotos = fotoslider.children.length;
+            console.log(aantalfotos);
+
+            
+                volgendeKnop.addEventListener("click", ()=>{
+                    fotonummer += 1;
+                    if(fotonummer === aantalfotos){
+                        fotonummer = 0;
+                    }
+                    let afstandNaarLinks = -1 * (fotonummer * fotobreedte)
+                    fotoslider.style.left = `${afstandNaarLinks}px`
+                })
+                vorigeKnop.addEventListener("click", ()=>{
+                    fotonummer -= 1;
+                    if(fotonummer <0){
+                        fotonummer = aantalfotos -1;
+                    }
+                    let afstandNaarLinks = -1 * (fotonummer * fotobreedte)
+                    fotoslider.style.left = `${afstandNaarLinks}px`
+                })
+        }
+    
+        window.addEventListener("DOMContentLoaded", setupFotoslider);
+
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Sesam Straat</h1>
+        
+    </header>
+    <div id="viewport">
+        <div id="fotoslider">
+            <div class="foto">
+                <img src="images/photo-1.jpg" alt="">
+            </div>
+            <div class="foto">
+                <img src="images/photo-5.jpg" alt="">
+            </div>
+            <div class="foto">
+                <img src="images/photo-2.jpg" alt="">
+            </div>
+            
+            <div class="foto">
+                <img src="images/photo-3.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <div id="controls">
+        <button id="vorige-btn">Vorige</button>
+        <button id="volgende-btn">Volgende</button>
+    </div>
+
+    
+</body>
+</html>
