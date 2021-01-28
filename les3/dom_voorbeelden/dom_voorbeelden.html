@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>domvoorbeelden</title>
+    <link rel="stylesheet" href="css/fotoslider.css">
+    <script>
+        function haalElementenOp(){
+            let fotoslider = document.getElementById("fotoslider");
+            console.log(fotoslider);
+
+            let eersteFotoDiv = document.querySelector('.foto');
+            console.log(eersteFotoDiv);
+
+            let alleFotosDivs = document.querySelectorAll('.foto');
+            console.log(alleFotosDivs);
+
+            fotoslider.className = 'fotoslider';
+           //fotoslider.innerHTML = 'Alle fotos vervangen door deze tekst!';
+            fotoslider.style.borderColor = '#0000FF';
+            fotoslider.style.borderStyle = 'solid';
+            fotoslider.style.borderWidth = '5px';
+            fotoslider.position = 'absolute';
+            fotoslider.left = '100px'
+            for (let i = 0; i < alleFotosDivs.length; i++) {
+                let item = alleFotosDivs[i];
+                console.log(item);
+                item.style.backgroundColor="#FFOOOO";
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', haalElementenOp)
+    </script>
+</head>
+<body>
+    <div id="fotoslider">
+        <div class="foto">
+            <img src="images/photo-1.jpg" alt="">
+        </div>
+        <div class="foto">
+            <img src="images/photo-2.jpg" alt="">
+        </div>
+        <div class="foto">
+            <img src="images/photo-3.jpg" alt="">
+        </div>
+        <div class="foto">
+            <img src="images/photo-4.jpg" alt="">
+        </div>
+        <div class="foto">
+            <img src="images/photo-5.jpg" alt="">
+        </div>
+    </div>
+
+
+
+
+
+
+</body>
+</html>
